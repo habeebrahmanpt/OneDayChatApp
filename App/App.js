@@ -115,7 +115,9 @@ const App = () => {
                         children={() => <ChatView chanel={chanel} user={user} />}
                     />
                 </Drawer.Navigator>
-
+                {(Platform.OS == 'ios') ?
+                    <View style={{ height: 20 }} />
+                    : null}
             </NavigationContainer>
         </ApolloProvider>
     )
