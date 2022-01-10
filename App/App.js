@@ -4,7 +4,7 @@ import ChatView from './ChatView';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import SelectDropdown from 'react-native-select-dropdown'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Images from './Themes/Images';
 
 // Initialize Apollo Client
@@ -58,6 +58,9 @@ const App = () => {
     const NavigationDrawerContent = (props) => {
         return (
             <View style={styles.container}>
+                {(Platform.OS == 'ios') ?
+                    <View style={{ height: 100 }} />
+                    : null}
                 <Text>1. Choose your user</Text>
                 <SelectDropdown
                     data={userList}
